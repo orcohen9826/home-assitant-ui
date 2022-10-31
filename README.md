@@ -1,4 +1,5 @@
 # home-assitant-ui
+Still in progress
 # Features
 - the themes created specially for this design, automatically changing.
 - HomeKit style design using [Button Card](https://github.com/custom-cards/button-card)

@@ -1,0 +1,8 @@
+
+type: custom:decluttering-card
+template: simple-thermostat
+variables:
+  - entity: climate.living_room_ac 
+  - power_sensors: binary_sensor.door_window_sensor_158d000414858d
+  - name: סלון
+  - step_layout: row

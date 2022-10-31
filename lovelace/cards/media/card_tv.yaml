@@ -1,0 +1,160 @@
+type: horizontal-stack
+cards:
+  - type: button
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    show_icon: true
+    show_name: false
+    show_state: false
+    entity: switch.tv_volume_up
+    icon: 'mdi:volume-plus'
+  - type: button
+    tap_action:
+      action: toggle
+    hold_action:
+      action: call-service
+      service: browser_mod.popup
+      service_data:
+        style:
+          border-radius: 100px
+          '--ha-card-border-radius': 100px
+        title: TV remote
+        icon: 'mdi:television-clean'
+        card:
+          type: 'custom:tv-card'
+          entity: sun.sun
+          back:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBGAJOVEzcROBI4ERQRFBEUERQRFBE5ETgSOBEUERQRFBEUEhMRFBEUERQROBI4ERQROBITEjgROBI4EhMSExI4ERQROBIADQUAAA==
+          channeldown:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBgAAABIowWDhgMFw0XDBgNFg0XDRcOFTEXMRcwGDAVMhcxFzAXDRcxFw0XMhUxFw0WDRgOFQ8VDxUyFg8UDxUyFjIWMRUzFQADBgABJEYTAAPNAAEmRBYAA80AASVFFwANBQAAAAAAAAAA
+          channelup:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBQAAABH40YDBcNGAsWDxQPFRAWDRcNFjMVMhUzFTIWMhUyFjIVDxUPFQ8VMhUzFQ4VDxUQFA8XMBUzFw0XDBcxGC8XMRcxFwADCAABJEQYAA0FAAAAAAAAAAA=
+          down:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBQAAABKZMSExY0ExMSOBI4ExITNxQ2FBISExQSEhMTExITEzcTNxM3FBITEhQSExITExI4EhMUEhI4EzcSOBI4EjgTEhM3FAAFNQABKEkTAA0FAAAAAAAAAAA=
+          forward:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBQAAABK48XEBU1FhAVNRU1FRAWNBU1FREVEBURFBEVERQRFTUVNRU1FTUVERQRFREUNhQRFREUERQSFDYUNhI4FBEVNRM3EwAFNwABJ0kTAA0FAAAAAAAAAAA=
+          home:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBQAAABKZMTEhM3FBITNxI4ExITNhU2FBITEhMTEhMTExITEzcTNxQSEhMTExITEzcUNhQ2ExMSOBM3EzcTNxQRExMTEhQ2EwAFNwABKEgUAA0FAAAAAAAAAAA=
+          info:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBQAAABIowWDhYOGQkWEBcNFBAUDhYOGDAXMBcxFzEXMBcxFzAXDhQPFQ8XDRYPFTIWDhUPFg8UMhYyFTIWMhUPFjEWMhUyFgADBQABJUUWAA0FAAAAAAAAAAA=
+          left:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBYAAABKZIVERQ2FBEVNRM4FBETNxM3ExMSExMTEhMTEhMTEzcTNxMSEzgSExMSExMTEhM3ExMTNxMSEzgSOBI4EjgSExM3EwAFNgABKEcUAAxVAAEoSRQADQU=
+          play:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBQAAABKJQSExM3ExMSOBI4EhMTNxM3ExMSExMTEhMTExITEzcTNxMTEhMTExITExMSOBITExMSOBI4EjgSOBI4EhMTNxM3EwAFNwABJ0kTAA0FAAAAAAAAAAA=
+          #power:
+          #  service: remote.send_command
+          #  service_data:
+          #    entity_id: remote.living_room_ir_remote
+          #    command: >-
+          #      b64:JgBGAJOWEjcSOBI3EhMTEhITEhMSExI4ETgSOBEUERQRFBEUERQRFBI3EhMSFBETEhMSExMSEjgSExE4EzcRORI3ETkROBIADQUAAA==
+          power:         
+            service: switch.toggle
+            service_data:
+              entity_id: group.g_pilotv         
+          remote: input_select.tv_input
+          reverse:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBQAAABKJQSExM3ExMSOBI4EhMTNxM3ExMSExMTEhMTExITEzcTNxMTEjgSExMTEhMTNxMTEhMTNxMTEjgSOBI4EhMTNxM3EwAFNgABKEkTAA0FAAAAAAAAAAA=
+          right:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBYAAABJ5QTEhM3ExMTNxQ2ExMSOBQ2EhMTExITExITExMSEzYUOBI4EjgSExMTEhMTEhM3FRETEhMTEzcUNhQ2FDYUEhQ2FAAFNQABKUcVAAxTAAEoSBMADQU=
+          select:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBQAAABKJMUEhM3EhMUNhQ2FBITNhQ3ExITExMSFBITEhQSEjgTNxITFBITNxMSFBITEhM3ExMSOBM3EhMTNxQ2EzcUEhM3EwAFNgABKEgUAA0FAAAAAAAAAAA=
+          source:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBgAAABHo4XDhQPFg0XDRUPFg4VDxUPFDMVMhY0FjEUNBUyFjIVDxQQEzQVDxYOFTIVDxYOFQ8VMhYOFTMWMRUPFTIWMhYyFQADBQABJEcVAAPNAAEkRhQAA84AASRGFgANBQAAAAAAAAAA
+          theme: grey_night
+          tv: true
+          up:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBQAAABKJMTFRA3ExMUNhM3FBISOBM3ExITExMSFBISExQSEjgTNxMSExMTEhQSExIUEhI4EhMTNxM3EzcUNhQ2FDYUEhI4EwAFNgABKEgUAA0FAAAAAAAAAAA=
+          volume_down:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBgAAABHI0VDxUyFg8UMxUyFjIVMhcOFDQXDRUzFQ8VDhYOFg4WMhUyFTMVDxcwFjMVDxYPFA8WDRUPFTMVDxUPFjEXMBYyFQADSwABIUUVAAOuAAEjQxgAA6wAASJEFQANBQAAAAAAAAAA
+          volume_mute:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBQAAABI40XDRYyFwwXMxYyFTMWMRcOFjEWDhcxFQ8WDhcMFhAVMxYOFQ8WMRYyFjIWDhcNFQ8VMxYxFw8VDxYOFTMVMhYyFwADTgABIkUVAA0FAAAAAAAAAAA=
+          volume_up:
+            service: remote.send_command
+            service_data:
+              entity_id: remote.living_room_ir_remote
+              command: >-
+                b64:JgBgAAABG40XDhQ0Fg4VMxUyFTMVMhcNFTMVDxYxFw8UDxUPFQ8VMxUPFTIVEBUxFTMWDhUOFg4WMhYOFjMVDxUOFjIWMhUyFgADTAABIUUVAAOxAAEfRhcAA6wAASFGFgANBQAAAAAAAAAA
+        hide_header: true
+        deviceID: this
+     #     - 5f209fff-2e8aa576
+    show_icon: true
+    show_name: false
+    show_state: false
+    entity: group.g_pilotv
+    icon: 'mdi:television-classic'
+  - type: button
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    show_icon: true
+    show_name: false
+    show_state: false
+    entity: switch.tv_volume_down
+    icon: 'mdi:volume-minus'

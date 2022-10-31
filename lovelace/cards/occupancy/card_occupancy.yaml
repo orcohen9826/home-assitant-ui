@@ -1,0 +1,50 @@
+type: vertical-stack
+cards:
+        
+############################################################################
+#                                                                          #
+#   Device trackers                                                        #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: shoulder_blank_card                                     
+
+      - type: custom:decluttering-card
+        template: person_elements
+        variables:
+          - entity: person.or
+          - direction: left
+          - image_away: /local/images/person_or_off.png
+          - image_home: /local/images/person_or_on.png
+          - battery: sensor.mi_note_10_battery_level
+          - phone_icon: mdi:cellphone-iphone
+          # - tap_action:
+          #     action: navigate
+          #     navigation_path: /lovelace/map/
+          - tap_action:
+                action: more-info
+
+      - type: custom:decluttering-card
+        template: person_elements
+        variables:
+          - entity: person.oshri
+          - direction: right
+          - image_away: /local/images/oshri_off.png
+          - image_home: /local/images/oshri_on.png
+          - battery: sensor.sm_a520f_battery_level
+          - phone_icon: mdi:cellphone-android
+          # - tap_action:
+          #     action: navigate
+          #     navigation_path: /lovelace/map/
+          - tap_action:
+                action: more-info 
+                      
+      - type: custom:button-card
+        template: shoulder_blank_card       
+
+  #- !include /config/lovelace/styles/separator_card.yaml
+ ##   template: separator

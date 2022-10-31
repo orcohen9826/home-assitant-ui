@@ -1,0 +1,15 @@
+
+ cards:
+  - cards:
+     - entity: vacuum.xiaomi_vacuum_cleaner
+       image: /local/images/vaccum_pic.jpeg
+       type: 'custom:xiaomi-vacuum-card'
+    type: horizontal-stack
+  - cards:
+     - type: entities
+       entities:
+         - entity: input_select.vacuum_room
+           image: /local/images/vaccum_pic.jpeg
+           theme: Google Dark Theme
+    type: horizontal-stack
+ type: vertical-stack

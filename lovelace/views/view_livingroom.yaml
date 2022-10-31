@@ -1,0 +1,47 @@
+    icon: 'mdi:sofa'
+    panel: false
+    path: view_living_room
+    title: Living Room
+    cards:
+
+
+      - !include /config/lovelace/cards/ac/card_smartir_living_room.yaml
+      - !include /config/lovelace/cards/media/card_livingroom_tv.yaml
+
+      - cards:
+          - entity: light.living_room
+            hold_action:
+              action: more-info
+            icon: 'mdi:lightbulb'
+            tap_action:
+              action: toggle
+            theme: Google - Dark
+            type: entity-button
+            name: Side
+          - type: 'custom:mini-graph-card'
+            entities:
+              - binary_sensor.motion_sensor_158d0005414709
+            name: motion
+            line_color: blue
+            line_width: 8
+            font_size: 75
+            hours_to_show: 1
+            points_per_hour: 30
+            update_interval: 30
+            aggregate_func: max
+            state_map:
+              - value: 'off'
+                label: Clear
+              - value: 'on'
+                label: Detected
+          - entity: input_boolean.livingroom_rflight_boolean
+            hold_action:
+              action: more-info
+            icon: 'mdi:lightbulb-group'
+            icon_height: 70px
+            name: 'Main '
+            tap_action:
+              action: toggle
+            theme: Google - Dark
+            type: entity-button
+        type: horizontal-stack   

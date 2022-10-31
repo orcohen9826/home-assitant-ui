@@ -1,0 +1,123 @@
+ 
+ #     background-image: 'center / cover no-repeat url("/local/images/backgrounds/light_blue_ios.jpg") fixed'
+icon: 'mdi:information-variant'
+panel: false
+path: view_sensors_p
+title: sensors
+theme: ios-sensors-mode
+
+cards:
+ # - !include /config/lovelace/cards/card_sensors.yaml
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:mini-graph-card'
+            entities:
+              - binary_sensor.door_window_sensor_158d0004024dad
+            name: Window
+            line_color: blue
+            line_width: 8
+            font_size: 75
+            state_map:
+              - value: 'off'
+                label: close
+              - value: 'on'
+                label: open
+            hours_to_show: 12
+            points_per_hour: 1
+          - type: 'custom:mini-graph-card'
+            entities:
+              - entity: sensor.pow_r2_energy_power
+            name: Energy
+            hours_to_show: 168
+            aggregate_func: max
+            group_by: date
+            show:
+              graph: bar
+          - type: 'custom:mini-graph-card'
+            entities:
+              - binary_sensor.door_window_sensor_158d0003593043
+            name: Entry Door
+            line_color: var(--accent-color)
+            line_width: 8
+            font_size: 75
+            state_map:
+              - value: 'off'
+                label: close
+              - value: 'on'
+                label: open
+            hours_to_show: 12
+            points_per_hour: 1
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.illumination_158d0005414709
+            name: Living Room
+            line_color: blue
+            line_width: 8
+            font_size: 75
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.illumination_158d00053f7e59
+            name: Kitchen
+            line_color: '#e74c3c'
+            line_width: 8
+            font_size: 75
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.illumination_158d000485f653
+            name: Office
+            line_color: var(--accent-color)
+            line_width: 8
+            font_size: 75
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.temperature_158d0003cf3de2
+            name: Bedroom
+            line_color: blue
+            line_width: 8
+            font_size: 75
+            hours_to_show: 12
+            points_per_hour: 1
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.humidity_158d00041097d1
+            name: Humidity
+            line_color: '#e74c3c'
+            line_width: 8
+            font_size: 75
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.temperature_158d00041097d1
+            name: Hallway
+            hours_to_show: 12
+            points_per_hour: 1
+            line_color: var(--accent-color)
+            line_width: 8
+            font_size: 75
+      - type: 'custom:mini-graph-card'
+        entities:
+          - entity: binary_sensor.motion_sensor_158d000485f653
+            name: Office
+          - entity: binary_sensor.motion_sensor_158d00053f7e59
+            name: Kitchen
+          - entity: binary_sensor.motion_sensor_158d0005414709
+            name: Living Room
+            color: green
+          - entity: binary_sensor.motion_sensor_158d00045c745f
+            name: Toilet
+        name: MOTION MONITOR
+        hours_to_show: 1
+        points_per_hour: 30
+        update_interval: 30
+        aggregate_func: max
+        line_width: 2
+        state_map:
+          - value: 'off'
+            label: Clear
+          - value: 'on'
+            label: Detected

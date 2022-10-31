@@ -1,0 +1,45 @@
+    icon: 'mdi:air-conditioner'
+    panel: false
+    path: all_ac
+    title: AC
+    cards:
+     - cards:
+         - !include /config/lovelace/cards/ac/card_simple_thermostat_living_room.yaml
+       type: vertical-stack   
+
+     - type: custom:decluttering-card
+       template: simple-thermostat
+       variables:
+         - entity: climate.office_ac 
+         - power_sensors: binary_sensor.door_window_sensor_158d000444e43a
+         - name: חדר עבודה
+         - step_layout: row
+
+
+         
+     - type: custom:decluttering-card
+       template: simple-thermostat
+       variables:
+         - entity: climate.bedroom_ac 
+         - power_sensors: binary_sensor.door_window_sensor_158d0004148728
+         - name: חדר שינה
+         - step_layout: row
+         
+         
+         
+         
+         
+     - type: custom:decluttering-card
+       template: simple-thermostat
+       variables:
+         - entity: climate.kitchen_ac 
+         - power_sensors:  binary_sensor.door_window_sensor_158d000444e45a
+         - name: מטבח
+         - step_layout: row
+
+#      - cards:
+#          - !include /config/lovelace/cards/ac/card_smartir_living_room.yaml
+#          - !include /config/lovelace/cards/ac/card_smartir_kitchen.yaml
+#          - !include /config/lovelace/cards/ac/card_smartir_office.yaml
+#          - !include /config/lovelace/cards/ac/card_smartir_bedroom.yaml
+#        type: vertical-stack   

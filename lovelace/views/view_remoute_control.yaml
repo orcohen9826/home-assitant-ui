@@ -1,0 +1,12 @@
+    icon: 'mdi:remote'
+    panel: false
+    path: remoute_control
+    title: remoute control
+    cards:
+      - entities:
+          - entity: script.alarm_bedroom
+          - entity: script.stop_alarm_bedroom
+        show_header_toggle: false
+        theme: Google - Dark
+        title: oshri wake up
+        type: entities

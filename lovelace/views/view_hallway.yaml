@@ -1,0 +1,45 @@
+    icon: 'mdi:door-open'
+    panel: false
+    path: view_hallway
+    title: Hallway
+    cards: 
+      - !include /config/lovelace/cards/card_aquarium.yaml
+      - cards:
+          - entity: light.hallway
+            hold_action:
+              action: more-info
+            icon: 'mdi:lightbulb'
+            tap_action:
+              action: toggle
+            theme: Google - Dark
+            type: entity-button
+            name: main
+            show_state: true
+            show_name: false
+          - type: 'custom:mini-graph-card'
+            entities:
+              - binary_sensor.door_window_sensor_158d0003593043
+            name: Entry Door
+            line_color: var(--accent-color)
+            line_width: 8
+            font_size: 75
+            state_map:
+              - value: 'off'
+                label: close
+              - value: 'on'
+                label: open
+            hours_to_show: 12
+            points_per_hour: 1
+          - entity: switch.switch_kitchen
+            hold_action:
+              action: more-info
+            icon: 'mdi:dog'
+            icon_height: 70px
+            tap_action:
+              action: toggle
+            theme: Google - Dark
+            type: entity-button
+            show_icon: true
+            show_name: false
+            show_state: false
+        type: horizontal-stack

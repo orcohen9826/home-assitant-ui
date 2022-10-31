@@ -1,0 +1,17 @@
+ cards:
+  - cards:
+      - !include /config/lovelace/cards/card_small_forecast.yaml
+    type: horizontal-stack
+  - cards:
+       - !include /config/lovelace/cards/occupancy/card_occupancy.yaml
+    type: horizontal-stack
+  - cards:
+       - !include /config/lovelace/cards/occupancy/card_tablets_circle.yaml
+    type: horizontal-stack
+    
+    
+    
+  - cards:
+       - !include /config/lovelace/cards/card_vacume.yaml
+    type: horizontal-stack
+ type: vertical-stack

@@ -1,0 +1,44 @@
+simple-thermostat:
+
+#  default:
+#    - text_color: var(--picture-elements-text-color)
+#    - icon_color: 'var(--picture-elements-icon-color)'
+#    - cool_color: 'var(--smartir-cool-color)'
+#    - heat_color: 'var(--smartir-heat-color)'
+#    - fan_only_color: 'var(--smartir-fan-only-color)'
+#    - auto_color: 'var(--smartir-auto-color)'  
+#    - icon_width: 26px
+#    - icon_height: 26px
+#    - font_size: 24px
+#
+  card:
+
+
+    type: 'custom:simple-thermostat'
+    style: |
+      ha-card {
+        --st-font-size-xl: 24px;
+        --st-font-size-m: 20px;
+        --st-font-size-title: 20px;
+        --st-font-size-sensors: 15px;
+        --st-spacing: 2px;
+      }
+    entity: '[[entity]]'
+    name: '[[name]]'
+    icon: false
+    step_layout: '[[step_layout]]'
+    control:
+      _headings: false
+      _names: false
+      hvac:
+        heat_cool: false
+    decimals: 1
+    label:
+      temperature: Temp
+    sensors:
+      - entity: '[[power_sensors]]'
+        name: state
+      - attribute: current_humidity
+        name: Hum'
+        unit: '%'
+    step_size: 1

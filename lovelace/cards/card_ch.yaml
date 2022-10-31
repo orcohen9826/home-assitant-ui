@@ -1,0 +1,57 @@
+
+ cards:
+  - cards:
+      - type: 'custom:button-card'
+        style: |
+          ha-card {
+            overflow: hidden;
+            width: 5px;
+          }
+        color_type: blank-card
+        styles:
+          card:
+            - width: 195px
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: 'Rooms AC'
+    type: horizontal-stack
+  - cards:
+
+      - entity: climate.office_ac
+        name: office
+        theme: grey_night
+        type: thermostat
+      - entity: climate.living_room_ac
+        name: Living Room
+        theme: grey_night
+        type: thermostat
+      - entity: climate.bedroom_ac
+        name: Bedroom
+        theme: grey_night
+        type: thermostat
+    type: horizontal-stack
+  - cards:
+      - type: 'custom:button-card'
+        style: |
+          ha-card {
+            overflow: hidden;
+            width: 5px;
+          }
+        color_type: blank-card
+        styles:
+          card:
+            - width: 180px
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: 'Living Room AC'
+    type: horizontal-stack
+  - cards:
+
+
+       - !include /config/lovelace/cards/ac/card_simple_thermostat_living_room.yaml
+    type: horizontal-stack
+ type: vertical-stack
+ 
+ 

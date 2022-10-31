@@ -1,0 +1,25 @@
+title: Wall Panel
+
+
+custom_header:
+  kiosk_mode: true
+swipe_nav:
+  wrap: true
+  animate: swipe
+  prevent_default: true
+  swipe_amount: 15
+
+# Button card templates  
+decluttering_templates:
+  !include_dir_merge_named /config/lovelace/decluttering_templates/
+
+button_card_templates:
+  !include_dir_merge_named /config/lovelace/button_card_templates/
+   
+background: var(--background-image)   
+   
+
+views:
+    # Main
+  - !include /config/lovelace/views/view_main_wallpanel.yaml
+  - !include /config/lovelace/views/view_sensors.yaml

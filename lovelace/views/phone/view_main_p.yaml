@@ -1,0 +1,7 @@
+    title: main phone
+    path: main_p
+    cards:
+      - !include /config/lovelace/cards/occupancy/card_occupancy.yaml
+      - !include /config/lovelace/cards/menu/card_rooms_menu_buttons.yaml
+      - !include /config/lovelace/cards/media/card_spotify.yaml
+

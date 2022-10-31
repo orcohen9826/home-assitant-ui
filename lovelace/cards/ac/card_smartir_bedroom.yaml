@@ -1,0 +1,7 @@
+type: custom:decluttering-card
+template: smartir_card
+variables:
+#  - title: Bedroom AC
+  - name: bedroom_ac
+  - image_on: /local/images/ac_on.png
+  - image_off: /local/images/ac_off_pic.png

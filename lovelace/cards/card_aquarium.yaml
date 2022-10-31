@@ -1,0 +1,159 @@
+cards:
+  - type: picture-elements 
+    elements:
+      - type: state-label
+        entity: sensor.aqw_temp
+        style:
+          top: 9%
+          left: 83%
+          color: red
+          font-size: 19px
+          font-weight: bold
+      - type: state-icon
+        icon: 'mdi:lightbulb'
+        entity: switch.front_light
+        hold_action:
+          action: toggle
+        style:
+          top: 8%
+          left: 12%
+          color: red
+          font-size: 15px
+          font-weight: bold
+      - type: state-icon
+        icon: 'mdi:lightbulb'
+        entity: switch.back_light
+        hold_action:
+          action: toggle
+        style:
+          top: 8%
+          left: 18%
+          color: red
+          font-size: 15px
+          font-weight: bold
+      - type: state-label
+        entity: sensor.aqw_temp
+        prefix: Max temp=
+        style:
+          top: 46%
+          left: 30%
+          color: white
+          font-size: 15px
+          font-weight: bold
+      - type: state-label
+        entity: switch.back_light
+        prefix: Last PH=
+        style:
+          top: 56%
+          left: 30%
+          color: white
+          font-size: 15px
+          font-weight: bold
+      - type: state-label
+        entity: switch.back_light
+        prefix: Filter 2=
+        style:
+          top: 66%
+          left: 30%
+          color: white
+          font-size: 15px
+          font-weight: bold
+      - type: state-label
+        entity: switch.back_light
+        prefix: Last sicle=
+        style:
+          top: 56%
+          left: 70%
+          color: white
+          font-size: 15px
+          font-weight: bold
+      - type: state-label
+        entity: sensor.aqw_temp
+        prefix: Min temp=
+        style:
+          top: 46%
+          left: 70%
+          color: white
+          font-size: 15px
+          font-weight: bold
+      - type: state-label
+        entity: switch.back_light
+        prefix: Filter 1=
+        style:
+          top: 66%
+          left: 70%
+          color: white
+          font-size: 15px
+          font-weight: bold
+      - type: state-icon
+        icon: 'mdi:water-pump'
+        entity: switch.water_in
+        style:
+          top: 38%
+          left: 26%
+          color: red
+          font-size: 15px
+          font-weight: bold
+      - type: state-icon
+        icon: 'mdi:watering-can'
+        entity: switch.pump_1
+        style:
+          top: 38%
+          left: 41%
+          color: red
+          font-size: 15px
+          font-weight: bold
+      - type: state-icon
+        icon: 'mdi:waves'
+        entity: binary_sensor.float1
+        style:
+          top: 38%
+          left: 55%
+          color: red
+          font-size: 15px
+          font-weight: bold
+          
+          
+      - type: state-icon
+        icon: 'mdi:watering-can'
+        entity: script.aqw_water_replace
+        hold_action:
+          action: toggle
+        style:
+          top: 73.2%
+          left: 49%
+          color: red
+          font-size: 15px
+          font-weight: bold
+      - type: state-icon
+        icon: 'mdi:water-pump'
+        entity: switch.water_out
+        style:
+          top: 38.2%
+          left: 70%
+          color: red
+          font-size: 15px
+          font-weight: bold
+    image: /local/images/aqwarum.gif
+    entity: switch.back_light
+    state_filter:
+      'on': brightness(115%) saturate(2)
+      'off': brightness(80%) grayscale(80%)
+      
+      
+      
+  - type: 'custom:button-card'
+    style: |
+      ha-card {
+        overflow: hidden;
+        width: 0px;
+      }
+    color_type: blank-card
+    styles:
+      card:
+        - width: 80px
+        - height: 80px
+  - type: custom:gap-card
+    height: 80%
+    size: 1
+type: vertical-stack

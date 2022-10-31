@@ -1,0 +1,52 @@
+    icon: 'mdi:bed'
+    panel: false
+    path: view_bedroom
+    title: bedroom
+    cards:
+     # - !include /config/lovelace/cards/ac/card_sensors.yaml
+      - !include /config/lovelace/cards/ac/card_smartir_bedroom.yaml
+      - !include /config/lovelace/cards/media/card_bedroom_tv.yaml      
+      - !include /config/lovelace/cards/card_bed_monitor.yaml
+      - cards:
+          - entity: group.lights
+            hold_action:
+              action: more-info
+            icon: 'mdi:lightbulb-on-outline'
+            name: All
+            tap_action:
+              action: toggle
+            theme: Google - Dark
+            type: entity-button
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.temperature_158d0003cf3de2
+            name: Temp'
+            line_color: blue
+            line_width: 8
+            font_size: 75
+          - entity: light.badroom
+            hold_action:
+              action: more-info
+            icon: 'mdi:lightbulb-on-outline'
+            icon_height: 70px
+            tap_action:
+              action: toggle
+            theme: Google - Dark
+            type: entity-button
+            show_state: false
+            show_name: true
+            name: Main
+        type: horizontal-stack
+     
+#      - cards:
+#          - cards:
+#              - !include /config/lovelace/cards/ac/card_smartir_living_room.yaml
+#
+#              - !include /config/lovelace/cards/ac/card_smartir_living_room.yaml
+#            type: horizontal-stack
+#          - cards:
+#              - !include /config/lovelace/cards/ac/card_smartir_living_room.yaml
+#
+#              - !include /config/lovelace/cards/ac/card_smartir_living_room.yaml
+#            type: horizontal-stack
+#        type: vertical-stack

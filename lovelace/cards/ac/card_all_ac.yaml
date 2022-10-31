@@ -1,0 +1,108 @@
+ cards:
+   - cards:
+ 
+       - type: 'custom:simple-thermostat'
+         style: |
+           ha-card {
+             --st-font-size-xl: 24px;
+             --st-font-size-m: 20px;
+             --st-font-size-title: 20px;
+             --st-font-size-sensors: 15px;
+             --st-spacing: 2px;
+           }
+         entity: climate.living_room_ac
+         name: סלון
+         icon: mdi:sofa
+         control:
+           _headings: false
+           _names: false
+           hvac:
+             heat_cool: false
+         decimals: 1
+         label:
+           temperature: Temp
+         sensors:
+           - entity: sensor.temperature_158d00041097d1
+             name: Hum'
+         #step_layout: row
+         step_size: 1
+
+       - type: 'custom:simple-thermostat'
+         style: |
+           ha-card {
+             --st-font-size-xl: 24px;
+             --st-font-size-m: 20px;
+             --st-font-size-title: 20px;
+             --st-font-size-sensors: 15px;
+             --st-spacing: 2px;
+           }
+         entity: climate.kitchen_ac
+         name: מטבח
+         icon: 'mdi:coffee'
+         control:
+           _headings: false
+           _names: false
+           hvac:
+             heat_cool: false
+         decimals: 1
+         label:
+           temperature: Temp
+         sensors:
+           - entity: sensor.temperature_158d00041097d1
+             name: Hum'
+         #step_layout: row
+         step_size: 1
+
+     type: horizontal-stack
+   - cards:
+       - type: 'custom:simple-thermostat'
+         style: |
+           ha-card {
+             --st-font-size-xl: 24px;
+             --st-font-size-m: 20px;
+             --st-font-size-title: 20px;
+             --st-font-size-sensors: 15px;
+             --st-spacing: 2px;
+           }
+         entity: climate.office_ac
+         name: חדר עבודה
+         icon: 'mdi:desk'
+         control:
+           _headings: false
+           _names: false
+           hvac:
+             heat_cool: false
+         decimals: 0
+         label:
+           temperature: Temp
+         sensors:
+           - entity: sensor.temperature_158d00041097d1
+             name: Hum'
+         #step_layout: row
+         step_size: 1
+
+       - type: 'custom:simple-thermostat'
+         style: |
+           ha-card {
+             --st-font-size-xl: 24px;
+             --st-font-size-m: 20px;
+             --st-font-size-title: 20px;
+             --st-font-size-sensors: 15px;
+             --st-spacing: 2px;
+           }
+         entity: climate.bedroom_ac
+         name: חדר שינה
+         icon: 'mdi:bed'
+         control:
+           _headings: false
+           _names: false
+           hvac:
+             heat_cool: false
+         decimals: 0
+         label:
+           temperature: Temp
+
+         #step_layout: row
+         step_size: 1
+     type: horizontal-stack
+ type: vertical-stack

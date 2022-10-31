@@ -1,0 +1,121 @@
+type: picture-elements
+elements:
+  - type: state-label
+    entity: binary_sensor.top_left
+    style:
+      top: 24%
+      left: 34%
+      color: black
+      font-size: 15px
+      font-weight: bold
+      box-shadow: 0px 0px 0px 0px
+      background-color: '#E0FFFF'
+      border-radius: 20%
+  - type: state-label
+    entity: binary_sensor.top_right
+    style:
+      top: 24%
+      left: 66%
+      color: black
+      font-size: 15px
+      font-weight: bold
+      box-shadow: 0px 0px 0px 0px
+      background-color: '#E0FFFF'
+      border-radius: 20%
+  - type: state-label
+    entity: binary_sensor.bottom_left
+    style:
+      top: 43%
+      left: 20%
+      color: black
+      font-size: 15px
+      font-weight: bold
+      background-color: '#E0FFFF'
+      border-radius: 20%
+  - type: state-label
+    entity: binary_sensor.bottom_right
+    style:
+      top: 43%
+      left: 80%
+      color: black
+      font-size: 15px
+      font-weight: bold
+      box-shadow: 0px 0px 0px 0px
+      background-color: '#E0FFFF'
+      border-radius: 20%
+  - type: 'custom:bar-card'
+    style:
+      top: 80%
+      left: 50%
+      height: 40%
+      width: 100%
+      border-radius: 10%
+    entities:
+      - entity: sensor.top_left_value
+        icon: 'mdi:arrow-top-left-thick'
+        severity:
+          - color: Red
+            from: '20'
+            to: '50'
+          - color: Orange
+            from: '10'
+            to: '12'
+          - color: Green
+            from: '0'
+            to: '8'
+        positions:
+          icon: inside
+          indicator: inside
+          name: 'off'
+        direction: up
+      - entity: sensor.bottom_left_value
+        severity:
+          - color: Red
+            from: '20'
+            to: '50'
+          - color: Orange
+            from: '10'
+            to: '12'
+          - color: Green
+            from: '0'
+            to: '8'
+        positions:
+          icon: inside
+          name: 'off'
+          indicator: inside
+        icon: 'mdi:arrow-bottom-left-thick'
+      - entity: sensor.bottom_right_value
+        severity:
+          - color: Red
+            from: '20'
+            to: '50'
+          - color: Orange
+            from: '10'
+            to: '12'
+          - color: Green
+            from: '0'
+            to: '8'
+        positions:
+          icon: inside
+          name: 'off'
+          indicator: inside
+        icon: 'mdi:arrow-bottom-right-thick'
+      - entity: sensor.top_right_value
+        positions:
+          icon: inside
+          name: 'off'
+          indicator: inside
+        severity:
+          - color: Red
+            from: '20'
+            to: '50'
+          - color: Orange
+            from: '10'
+            to: '12'
+          - color: Green
+            from: '0'
+            to: '8'
+        icon: 'mdi:arrow-top-right-thick'
+    direction: up
+    stack: horizontal
+image: /local/images/bed.png

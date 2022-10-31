@@ -1,0 +1,63 @@
+    path: sensors
+    theme: ''
+   # background: url("/local/images/backgrounds/background09.jpg")
+    title: sensors
+    cards:
+      - entity: sensor.illumination_04cf8ca14d8f
+        graph: line
+        name: bedroom brightness
+        theme: Google - Dark
+        type: sensor
+      - detail: 2
+        entity: sensor.pressure_158d0003cf3de2
+        graph: line
+        name: bedroom pressure
+        theme: Smart - Dark
+        type: sensor
+      - detail: 2
+        entity: sensor.temperature_158d00041097d1
+        graph: line
+        hours_to_show: 24
+        type: sensor
+      - entity: sensor.temperature_158d0003cf3de2
+        graph: line
+        theme: Google - Dark
+        type: sensor
+      - entity: sensor.pressure_158d00041097d1
+        graph: line
+        name: living room pressure
+        theme: carbongreen
+        type: sensor
+      - entities:
+          - entity: sensor.oshri_battery
+          - entity: sensor.or_battery
+          - entity: sensor.gaming_phone_battery
+        theme: carbongreen
+        type: entities
+      - entity: sensor.humidity_158d0003cf3de2
+        graph: line
+        name: bedroom humidity
+        theme: Smart - Dark
+        type: sensor
+      - entity: sensor.humidity_158d00041097d1
+        graph: line
+        name: living room humidity
+        theme: Smart - Dark
+        type: sensor
+      - entities:
+          - entity: binary_sensor.door_window_sensor_158d000444e43a
+          - entity: binary_sensor.door_window_sensor_158d000444e45a
+        theme: carbongreen
+        type: entities
+      - entity: sensor.pow_r2_energy_current
+        graph: line
+        type: sensor
+      - entity: sensor.temperature_158d00041097d1
+        graph: line
+        type: sensor
+      - entities:
+          - entity: binary_sensor.motion_sensor_158d0005414709
+          - entity: binary_sensor.motion_sensor_158d000485f653
+          - entity: binary_sensor.motion_sensor_158d00045c745f
+        title: My Title
+        type: entities

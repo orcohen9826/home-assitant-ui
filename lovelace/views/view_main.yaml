@@ -1,0 +1,69 @@
+    icon: 'mdi:home'
+    panel: false
+    path: main
+    title: Main
+
+    cards:
+    
+      - cards:
+          - type: custom:decluttering-card
+            template: title_wallpanel_button_card
+            variables:
+              - name: 'Bed Monitor'
+              - padding-left: 130px
+        type: horizontal-stack                
+      - !include /config/lovelace/cards/card_bed_monitor.yaml
+      - cards:
+          - entity: light.hallway
+            hold_action:
+              action: more-info
+            icon: 'mdi:lightbulb-on-outline'
+            name: hallway
+            tap_action:
+              action: toggle
+            type: entity-button
+          - entity: light.badroom
+            hold_action:
+              action: more-info
+            icon: 'mdi:lightbulb-on-outline'
+            name: bedroom
+            tap_action:
+              action: toggle
+            theme: Google - Dark
+            type: entity-button
+          - entity: light.living_room
+            hold_action:
+              action: more-info
+            icon: 'mdi:lightbulb-on-outline'
+            tap_action:
+              action: toggle
+            theme: Google - Dark
+            type: entity-button
+          - entity: switch.night_light
+            hold_action:
+              action: more-info
+            icon: 'mdi:printer-3d-nozzle-alert-outline'
+            tap_action:
+              action: toggle
+            theme: Google - Dark
+            type: entity-button
+        type: horizontal-stack
+        
+
+
+      - type: 'custom:scheduler-card'
+        include:
+          - climate.bedroom_ac
+          - climate.kitchen_ac
+          - climate.living_room_ac
+          - climate.office_ac
+          - light.badroom
+          - light.gateway_light_04cf8ca14d8f
+          - light.hallway
+          - light.living_room
+          - script.aqw_lights
+          - switch.back_light
+          - switch.front_light
+          - switch.kitchen
+          - switch.pump_1    
+      

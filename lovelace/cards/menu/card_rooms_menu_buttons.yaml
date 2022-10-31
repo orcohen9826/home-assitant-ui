@@ -1,0 +1,422 @@
+type: vertical-stack
+cards:
+
+
+############################################################################
+#                                                                          #
+#   Title                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+    
+      - type: custom:decluttering-card
+        template: title_button_card
+        variables:
+          - name: Rooms
+    
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+        
+############################################################################
+#                                                                          #
+#   Rooms                                                                  #
+#                                                                          #
+############################################################################
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:button-card
+        template: shoulder_blank_card
+        
+############################################################################
+#                    living room                                           #
+############################################################################
+
+      - type: custom:decluttering-card
+        template: menu_button
+        variables:
+          - entity: light.living_room
+          - name: Living Room
+          - icon: mdi:sofa
+          #- icon: fas:couch
+          - corner_2_field: "[[[
+                  if (states['climate.living_room_ac'].state == 'unavailable') 
+                  return `<span></span>`;
+                  else return `<span><span style='text-transform: capitalize'>${states['sensor.smartir_living_room_ac_temp'].state}°C</span></span>`;                               
+                  ]]]"
+          - corner_2_text_color: "[[[
+                  if (states['sensor.smartir_living_room_ac_temp'].state >= 30) return '#bf4040';
+                  if (states['sensor.smartir_living_room_ac_temp'].state >= 26 && states['sensor.smartir_living_room_ac_temp'].state < 30) return '#bf9540';
+                  if (states['sensor.smartir_living_room_ac_temp'].state >= 18 && states['sensor.smartir_living_room_ac_temp'].state < 26) return 'rgba(117,189,111,1.0)';
+                  if (states['sensor.smartir_living_room_ac_temp'].state < 18) return 'rgb(43, 154, 249)';
+                  ]]]"
+          - cust_2_field: "[[[
+                  return `<ha-icon icon='mdi:television' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>${states['binary_sensor.pilot_tracer'].state}</span></span>`;
+                  ]]]"
+          - cust_2_icon_color: "[[[
+                  if (states['binary_sensor.pilot_tracer'].state == 'Off') return 'var(--paper-item-icon-color)';
+                  else return 'var(--paper-item-icon-active-color)';
+                  ]]]"
+          - cust_1_field: "[[[
+                  if (states['climate.living_room_ac'].state == 'unavailable')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>unavailable</span></span>`;                  
+                  else if (states['climate.living_room_ac'].state == 'off')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>off</span></span>`;
+                  else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>${states['climate.living_room_ac'].state} ${states['climate.living_room_ac'].attributes.temperature} ${states['climate.living_room_ac'].attributes.fan_mode}</span></span>`
+                  ]]]"
+          - cust_1_icon_color: "[[[
+                  if (states['climate.living_room_ac'].state == 'unavailable') return 'var(--button-card-icon-color)';
+                  if (states['climate.living_room_ac'].state == 'off') return 'var(--button-card-icon-color)';
+                  if (states['climate.living_room_ac'].state == 'cool') return 'var(--smartir-cool-color)';
+                  if (states['climate.living_room_ac'].state == 'heat') return 'var(--smartir-heat-color)';
+                  ]]]"
+          - path: view_living_room 
+############################################################################
+#                    kitchen                                               #
+############################################################################          
+
+      - type: custom:decluttering-card
+        template: menu_button
+        variables:
+          - entity:  switch.switch_kitchen
+          - name: Kitchen
+          - icon: mdi:coffee
+          - corner_2_field: "[[[
+                  if (states['climate.kitchen_ac'].state == 'unavailable') 
+                  return `<span></span>`;
+                  else return `<span><span style='text-transform: capitalize'>${states['sensor.smartir_kitchen_ac_temp'].state}°C</span></span>`;                               
+                  ]]]"
+          - corner_2_text_color: "[[[
+                  if (states['sensor.smartir_kitchen_ac_temp'].state >= 30) return '#bf4040';
+                  if (states['sensor.smartir_kitchen_ac_temp'].state >= 26 && states['sensor.smartir_kitchen_ac_temp'].state < 30) return '#bf9540';
+                  if (states['sensor.smartir_kitchen_ac_temp'].state >= 18 && states['sensor.smartir_kitchen_ac_temp'].state < 26) return 'rgba(117,189,111,1.0)';
+                  if (states['sensor.smartir_kitchen_ac_temp'].state < 18) return 'rgb(43, 154, 249)';
+                  ]]]"
+          - cust_1_field: "[[[
+                  if (states['climate.kitchen_ac'].state == 'unavailable')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>unavailable</span></span>`;                  
+                  else if (states['climate.kitchen_ac'].state == 'off')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>off</span></span>`;
+                  else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>${states['climate.kitchen_ac'].state} ${states['climate.kitchen_ac'].attributes.temperature} ${states['climate.kitchen_ac'].attributes.fan_mode}</span></span>`
+                  ]]]"
+          - cust_1_icon_color: "[[[
+                  if (states['climate.kitchen_ac'].state == 'unavailable') return 'var(--button-card-icon-color)';
+                  if (states['climate.kitchen_ac'].state == 'off') return 'var(--button-card-icon-color)';
+                  if (states['climate.kitchen_ac'].state == 'cool') return 'var(--smartir-cool-color)';
+                  if (states['climate.kitchen_ac'].state == 'heat') return 'var(--smartir-heat-color)';
+                  ]]]"
+          - path: view_kitchen
+############################################################################
+#                    ofiice                                                #
+############################################################################
+          
+          
+      - type: custom:decluttering-card
+        template: menu_button
+        variables:
+          - entity: light.hallway
+          - name: Office
+          - icon: mdi:desktop-classic
+          #- icon: fas:robot
+          - corner_2_field: "[[[
+                  if (states['climate.office_ac'].state == 'unavailable') 
+                  return `<span></span>`;
+                  else return `<span><span style='text-transform: capitalize'>${states['sensor.smartir_office_ac_temp'].state}°C</span></span>`;                               
+                  ]]]"
+          - corner_2_text_color: "[[[
+                  if (states['sensor.smartir_office_ac_temp'].state >= 30) return '#bf4040';
+                  if (states['sensor.smartir_office_ac_temp'].state >= 26 && states['sensor.smartir_office_ac_temp'].state < 30) return '#bf9540';
+                  if (states['sensor.smartir_office_ac_temp'].state >= 18 && states['sensor.smartir_office_ac_temp'].state < 26) return 'rgba(117,189,111,1.0)';
+                  if (states['sensor.smartir_office_ac_temp'].state < 18) return 'rgb(43, 154, 249)';
+                  ]]]"
+          - cust_1_field: "[[[
+                  if (states['climate.office_ac'].state == 'unavailable')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>unavailable</span></span>`;                  
+                  else if (states['climate.office_ac'].state == 'off')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>off</span></span>`;
+                  else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>${states['climate.office_ac'].state} ${states['climate.office_ac'].attributes.temperature} ${states['climate.office_ac'].attributes.fan_mode}</span></span>`
+                  ]]]"
+          - cust_1_icon_color: "[[[
+                  if (states['climate.office_ac'].state == 'unavailable') return 'var(--button-card-icon-color)';
+                  if (states['climate.office_ac'].state == 'off') return 'var(--button-card-icon-color)';
+                  if (states['climate.office_ac'].state == 'cool') return 'var(--smartir-cool-color)';
+                  if (states['climate.office_ac'].state == 'heat') return 'var(--smartir-heat-color)';
+                  ]]]"
+          # - cust_2_field: "[[[
+                  # if (states['switch.mqtt_kids_radiator'].state == 'off')
+                  # return `<ha-icon icon='mdi:radiator' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  # <span><span>off</span></span>`;               
+                  # else return `<ha-icon icon='mdi:radiator' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  # <span><span>${states['switch.mqtt_kids_radiator'].state}</span> <span style='text-transform: capitalize'>${states['sensor.mqtt_kids_radiator_current'].state}A</span></span>`
+                  # ]]]"
+          # - cust_2_icon_color: "[[[
+                  # if (states['switch.mqtt_kids_radiator'].state == 'unavailable') return 'var(--button-card-icon-color)';
+                  # if (states['switch.mqtt_kids_radiator'].state == 'off') return 'var(--button-card-icon-color)';
+                  # if (states['switch.mqtt_kids_radiator'].state == 'on') return 'var(--paper-item-icon-active-color)';
+                  # ]]]" 
+          - path: view_office
+
+
+
+          
+      - type: custom:button-card
+        template: shoulder_blank_card
+   
+  - type: horizontal-stack
+    cards:
+   
+      - type: custom:button-card
+        template: shoulder_blank_card  
+
+############################################################################
+#                  bedroom                                                 #
+############################################################################
+          
+      - type: custom:decluttering-card
+        template: menu_button
+        variables:
+          - entity: light.badroom
+          - name: Bedroom
+          - icon: mdi:bed-empty
+          #- icon: fas:bed
+          - corner_2_field: "[[[
+                  if (states['climate.bedroom_ac'].state == 'unavailable') 
+                  return `<span></span>`;
+                  else return `<span><span style='text-transform: capitalize'>${states['sensor.smartir_bedroom_ac_temp'].state}°C</span></span>`;                               
+                  ]]]"
+          - corner_2_text_color: "[[[
+                  if (states['sensor.smartir_bedroom_ac_temp'].state >= 30) return '#bf4040';
+                  if (states['sensor.smartir_bedroom_ac_temp'].state >= 26 && states['sensor.smartir_bedroom_ac_temp'].state < 30) return '#bf9540';
+                  if (states['sensor.smartir_bedroom_ac_temp'].state >= 18 && states['sensor.smartir_bedroom_ac_temp'].state < 26) return 'rgba(117,189,111,1.0)';
+                  if (states['sensor.smartir_bedroom_ac_temp'].state < 18) return 'rgb(43, 154, 249)';
+                  ]]]"
+          - cust_1_field: "[[[
+                  if (states['climate.bedroom_ac'].state == 'unavailable')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>unavailable</span></span>`;                  
+                  else if (states['climate.bedroom_ac'].state == 'off')
+                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>off</span></span>`;
+                  else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+                  <span><span>${states['climate.bedroom_ac'].state} ${states['climate.bedroom_ac'].attributes.temperature} ${states['climate.bedroom_ac'].attributes.fan_mode}</span></span>`
+                  ]]]"
+          - cust_1_icon_color: "[[[
+                  if (states['climate.bedroom_ac'].state == 'unavailable') return 'var(--button-card-icon-color)';
+                  if (states['climate.bedroom_ac'].state == 'off') return 'var(--button-card-icon-color)';
+                  if (states['climate.bedroom_ac'].state == 'cool') return 'var(--smartir-cool-color)';
+                  if (states['climate.bedroom_ac'].state == 'heat') return 'var(--smartir-heat-color)';
+                  ]]]"
+          - path: view_bedroom
+
+############################################################################
+#                    apps                                               #
+############################################################################          
+
+      - type: custom:decluttering-card
+        template: menu_button
+        variables:
+          - entity:  switch.switch_kitchen
+          - name: More info
+          - icon: mdi:apps
+          
+
+#          - corner_2_field: "[[[
+#                  if (states['climate.kitchen_ac'].state == 'unavailable') 
+#                  return `<span></span>`;
+#                  else return `<span><span style='text-transform: capitalize'>${states['sensor.smartir_kitchen_ac_temp'].state}°C</span></span>`;                               
+#                  ]]]"
+#          - corner_2_text_color: "[[[
+#                  if (states['sensor.smartir_kitchen_ac_temp'].state >= 30) return '#bf4040';
+#                  if (states['sensor.smartir_kitchen_ac_temp'].state >= 26 && states['sensor.smartir_kitchen_ac_temp'].state < 30) return '#bf9540';
+#                  if (states['sensor.smartir_kitchen_ac_temp'].state >= 18 && states['sensor.smartir_kitchen_ac_temp'].state < 26) return 'rgba(117,189,111,1.0)';
+#                  if (states['sensor.smartir_kitchen_ac_temp'].state < 18) return 'rgb(43, 154, 249)';
+#                  ]]]"
+#          - cust_1_field: "[[[
+#                  if (states['climate.kitchen_ac'].state == 'unavailable')
+#                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+#                  <span><span>unavailable</span></span>`;                  
+#                  else if (states['climate.kitchen_ac'].state == 'off')
+#                  return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+#                  <span><span>off</span></span>`;
+#                  else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+#                  <span><span>${states['climate.kitchen_ac'].state} ${states['climate.kitchen_ac'].attributes.temperature} ${states['climate.kitchen_ac'].attributes.fan_mode}</span></span>`
+#                  ]]]"
+#          - cust_1_icon_color: "[[[
+#                  if (states['climate.kitchen_ac'].state == 'unavailable') return 'var(--button-card-icon-color)';
+#                  if (states['climate.kitchen_ac'].state == 'off') return 'var(--button-card-icon-color)';
+#                  if (states['climate.kitchen_ac'].state == 'cool') return 'var(--smartir-cool-color)';
+#                  if (states['climate.kitchen_ac'].state == 'heat') return 'var(--smartir-heat-color)';
+#                  ]]]"
+          - path: view_apps
+############################################################################
+#                    hallway                                               #
+############################################################################          
+      - type: custom:decluttering-card
+        template: menu_button
+        variables:
+          - entity: light.hallway
+          - name: hallway
+          - icon: mdi:door-open
+          - path: view_hallway
+#          - corner_2_field: "[[[
+#                  return `<span><span style='text-transform: capitalize'>${states['sensor.xiaomi_work_room_temperature'].state}°C</span></span>`;                               
+#                  ]]]"
+#          - corner_2_text_color: "[[[
+#                  if (states['sensor.xiaomi_work_room_temperature'].state >= 30) return '#bf4040';
+#                  if (states['sensor.xiaomi_work_room_temperature'].state >= 26 && states['sensor.xiaomi_work_room_temperature'].state < 30) return '#bf9540';
+#                  if (states['sensor.xiaomi_work_room_temperature'].state >= 18 && states['sensor.xiaomi_work_room_temperature'].state < 26) return 'rgba(117,189,111,1.0)';
+#                  if (states['sensor.xiaomi_work_room_temperature'].state < 18) return 'rgb(43, 154, 249)';
+#                  ]]]"
+#          - cust_1_field: "[[[
+#                  return `<ha-icon icon='mdi:desktop-tower' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+#                  <span>dimka: <span>${states['binary_sensor.dimka_connected'].state}</span></span>`;
+#                  ]]]"
+#          - cust_1_icon_color: "[[[
+#                  if (states['binary_sensor.dimka_connected'].state == 'off') return 'var(--paper-item-icon-color)';
+#                  else return 'var(--paper-item-icon-active-color)';
+#                  ]]]"
+#  
+      - type: custom:button-card
+        template: shoulder_blank_card           
+ #    - type: custom:button-card
+ #      template: shoulder_blank_card
+ #
+ #- type: horizontal-stack
+ #  cards:
+ #
+ #    - type: custom:button-card
+ #      template: shoulder_blank_card
+ #
+ #    - type: custom:decluttering-card
+ #      template: menu_button
+ #      variables:
+ #        - entity: light.bedroom_ac
+ #        - name: bedroom_ac
+ #        - icon: mdi:bed-empty
+ #        #- icon: fas:bed
+ #        - corner_2_field: "[[[
+ #                if (states['climate.bedroom_ac'].state == 'unavailable') 
+ #                return `<span></span>`;
+ #                else return `<span><span style='text-transform: capitalize'>${states['sensor.smartir_bedroom_ac_temp'].state}°C</span></span>`;                               
+ #                ]]]"
+ #        - corner_2_text_color: "[[[
+ #                if (states['sensor.smartir_bedroom_ac_temp'].state >= 30) return '#bf4040';
+ #                if (states['sensor.smartir_bedroom_ac_temp'].state >= 26 && states['sensor.smartir_bedroom_ac_temp'].state < 30) return '#bf9540';
+ #                if (states['sensor.smartir_bedroom_ac_temp'].state >= 18 && states['sensor.smartir_bedroom_ac_temp'].state < 26) return 'rgba(117,189,111,1.0)';
+ #                if (states['sensor.smartir_bedroom_ac_temp'].state < 18) return 'rgb(43, 154, 249)';
+ #                ]]]"
+ #        - cust_1_field: "[[[
+ #                if (states['climate.bedroom_ac'].state == 'unavailable')
+ #                return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+ #                <span><span>unavailable</span></span>`;                  
+ #                else if (states['climate.bedroom_ac'].state == 'off')
+ #                return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+ #                <span><span>off</span></span>`;
+ #                else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+ #                <span><span>${states['climate.bedroom_ac'].state} ${states['climate.bedroom_ac'].attributes.temperature} ${states['climate.bedroom_ac'].attributes.fan_mode}</span></span>`
+ #                ]]]"
+ #        - cust_1_icon_color: "[[[
+ #                if (states['climate.bedroom_ac'].state == 'unavailable') return 'var(--button-card-icon-color)';
+ #                if (states['climate.bedroom_ac'].state == 'off') return 'var(--button-card-icon-color)';
+ #                if (states['climate.bedroom_ac'].state == 'cool') return 'var(--smartir-cool-color)';
+ #                if (states['climate.bedroom_ac'].state == 'heat') return 'var(--smartir-heat-color)';
+ #                ]]]"
+ #        - path: bedroom_ac
+ #
+ #    - type: custom:decluttering-card
+ #      template: menu_button
+ #      variables:
+ #        - entity: light.work_room
+ #        - name: Work Room
+ #        - icon: mdi:desktop-classic
+ #        #- icon: fas:computer-speaker
+ #        - path: work_room
+ #        - corner_2_field: "[[[
+ #                return `<span><span style='text-transform: capitalize'>${states['sensor.xiaomi_work_room_temperature'].state}°C</span></span>`;                               
+ #                ]]]"
+ #        - corner_2_text_color: "[[[
+ #                if (states['sensor.xiaomi_work_room_temperature'].state >= 30) return '#bf4040';
+ #                if (states['sensor.xiaomi_work_room_temperature'].state >= 26 && states['sensor.xiaomi_work_room_temperature'].state < 30) return '#bf9540';
+ #                if (states['sensor.xiaomi_work_room_temperature'].state >= 18 && states['sensor.xiaomi_work_room_temperature'].state < 26) return 'rgba(117,189,111,1.0)';
+ #                if (states['sensor.xiaomi_work_room_temperature'].state < 18) return 'rgb(43, 154, 249)';
+ #                ]]]"
+ #        - cust_1_field: "[[[
+ #                return `<ha-icon icon='mdi:desktop-tower' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+ #                <span>dimka: <span>${states['binary_sensor.dimka_connected'].state}</span></span>`;
+ #                ]]]"
+ #        - cust_1_icon_color: "[[[
+ #                if (states['binary_sensor.dimka_connected'].state == 'off') return 'var(--paper-item-icon-color)';
+ #                else return 'var(--paper-item-icon-active-color)';
+ #                ]]]"
+ #
+ #
+ #    - type: custom:decluttering-card
+ #      template: menu_button
+ #      variables:
+ #        - entity: light.hallway
+ #        - name: office_ac
+ #        - icon: mdi:face
+ #        #- icon: fas:robot
+ #        - corner_2_field: "[[[
+ #                if (states['climate.office_ac'].state == 'unavailable') 
+ #                return `<span></span>`;
+ #                else return `<span><span style='text-transform: capitalize'>${states['sensor.smartir_office_ac_temp'].state}°C</span></span>`;                               
+ #                ]]]"
+ #        - corner_2_text_color: "[[[
+ #                if (states['sensor.smartir_office_ac_temp'].state >= 30) return '#bf4040';
+ #                if (states['sensor.smartir_office_ac_temp'].state >= 26 && states['sensor.smartir_office_ac_temp'].state < 30) return '#bf9540';
+ #                if (states['sensor.smartir_office_ac_temp'].state >= 18 && states['sensor.smartir_office_ac_temp'].state < 26) return 'rgba(117,189,111,1.0)';
+ #                if (states['sensor.smartir_office_ac_temp'].state < 18) return 'rgb(43, 154, 249)';
+ #                ]]]"
+ #        - cust_1_field: "[[[
+ #                if (states['climate.office_ac'].state == 'unavailable')
+ #                return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+ #                <span><span>unavailable</span></span>`;                  
+ #                else if (states['climate.office_ac'].state == 'off')
+ #                return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+ #                <span><span>off</span></span>`;
+ #                else return `<ha-icon icon='mdi:fan' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+ #                <span><span>${states['climate.office_ac'].state} ${states['climate.office_ac'].attributes.temperature} ${states['climate.office_ac'].attributes.fan_mode}</span></span>`
+ #                ]]]"
+ #        - cust_1_icon_color: "[[[
+ #                if (states['climate.office_ac'].state == 'unavailable') return 'var(--button-card-icon-color)';
+ #                if (states['climate.office_ac'].state == 'off') return 'var(--button-card-icon-color)';
+ #                if (states['climate.office_ac'].state == 'cool') return 'var(--smartir-cool-color)';
+ #                if (states['climate.office_ac'].state == 'heat') return 'var(--smartir-heat-color)';
+ #                ]]]"
+ #        - cust_2_field: "[[[
+ #                if (states['switch.mqtt_kids_radiator'].state == 'off')
+ #                return `<ha-icon icon='mdi:radiator' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+ #                <span><span>off</span></span>`;               
+ #                else return `<ha-icon icon='mdi:radiator' style='width: 12px; height: 12px; color: var(--icon-color-sensor);'></ha-icon>
+ #                <span><span>${states['switch.mqtt_kids_radiator'].state}</span> <span style='text-transform: capitalize'>${states['sensor.mqtt_kids_radiator_current'].state}A</span></span>`
+ #                ]]]"
+ #        - cust_2_icon_color: "[[[
+ #                if (states['switch.mqtt_kids_radiator'].state == 'unavailable') return 'var(--button-card-icon-color)';
+ #                if (states['switch.mqtt_kids_radiator'].state == 'off') return 'var(--button-card-icon-color)';
+ #                if (states['switch.mqtt_kids_radiator'].state == 'on') return 'var(--paper-item-icon-active-color)';
+ #                ]]]" 
+ #        - path: office_ac
+ #
+ #    - type: custom:button-card
+ #      template: shoulder_blank_card
+
+
+  - !include /config/lovelace/styles/separator_card.yaml

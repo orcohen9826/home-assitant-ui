@@ -1,0 +1,27 @@
+entity: media_player.spotify_or_cohen
+type: 'custom:mini-media-player'
+artwork: cover
+source: icon
+hide:
+  icon: true
+shortcuts:
+  columns: 4
+  buttons:
+    - icon: 'mdi:volume-source'
+      type: service
+      action: call-service
+      id: script.media_volume_popup
+      data:
+        deviceID: this
+    - icon: 'mdi:television-clean'
+      type: script
+      id: script.media_tv_l_popup
+      data:
+        deviceID: this
+    - icon: 'mdi:folder-multiple-image'
+      type: service
+      action: call-service
+      id: browser_mod.navigate
+      data:
+        navigation_path: /media-browser
+        deviceID: this

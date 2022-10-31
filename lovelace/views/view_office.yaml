@@ -1,0 +1,8 @@
+    icon: 'mdi:desktop-classic'
+    panel: false
+    path: view_office
+    title: Office
+    cards: 
+      - !include /config/lovelace/cards/ac/card_smartir_office.yaml
+
+        

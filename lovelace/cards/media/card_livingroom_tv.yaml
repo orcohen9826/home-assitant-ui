@@ -1,0 +1,35 @@
+entity: media_player.living_room_tv
+type: 'custom:mini-media-player'
+name: Living Room TV
+icon: 'mdi:television'
+background: /local/images/backgrounds/orange_ios.jpg
+volume_stateless: true
+tap_action:
+  action: more-info
+  entity: media_player.s70pci
+hide:
+  source: true
+  icon: true
+shortcuts:
+  columns: 3
+  buttons:
+    - icon: 'mdi:folder-multiple-image'
+      type: service
+      action: call-service
+      id: browser_mod.navigate
+      data:
+        navigation_path: /media-browser
+        deviceID: this
+    - icon: 'mdi:remote-tv'
+      type: script
+      id: script.remote_livingroom_tv
+      data:
+        deviceID: this
+    - icon: 'mdi:netflix'
+      type: service
+      action: call-service
+      id: remote.send_command
+      data:
+        entity_id: remote.living_room_ir_remote
+        command: >-
+          b64:JgBYAAABK5EUERY1FBEUNhU1FRAWNRU1FBEWEBQRFRAVERUQFTUWNRUQFRAWEBUQFjQWEBU1FRAVNRY1FTUVNRUQFjQWEBQ2FQAFNAABKUcVAAxTAAEoSBMADQU=

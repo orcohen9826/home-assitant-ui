@@ -1,0 +1,25 @@
+    path: test
+    title: test
+    cards:
+      - !include /config/lovelace/cards/wallpanel/card_wallpanel_right.yaml
+      - entities:
+          - entity: binary_sensor.door_window_sensor_158d000414858d
+          - entity: binary_sensor.door_window_sensor_158d0004148728
+        type: entities
+      - entity: weather.home
+        type: weather-forecast
+      - entities:
+          - entity: binary_sensor.pow_r2_button1
+          - entity: sensor.pow_r2_energy_apparentpower
+          - entity: sensor.pow_r2_energy_current
+          - entity: sensor.pow_r2_energy_factor
+          - entity: sensor.pow_r2_energy_power
+          - entity: sensor.pow_r2_energy_reactivepower
+          - entity: sensor.pow_r2_energy_today
+          - entity: sensor.pow_r2_energy_total
+          - entity: sensor.pow_r2_energy_totalstarttime
+          - entity: sensor.pow_r2_energy_voltage
+          - entity: sensor.pow_r2_energy_yesterday
+          - entity: sensor.pow_r2_status
+          - entity: switch.pow_r2
+        type: entities

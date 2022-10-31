@@ -1,0 +1,38 @@
+title: Home
+
+#custom_header: 
+#  !include /config/lovelace/custom_header.yaml
+
+decluttering_templates:
+  #!include /config/lovelace/decluttering_templates/decluttering_templates.yaml
+  !include_dir_merge_named /config/lovelace/decluttering_templates/
+
+button_card_templates:
+  #!include /config/lovelace/button_card_templates/button_card_templates.yaml
+  !include_dir_merge_named /config/lovelace/button_card_templates/
+  
+background: var(--background-image)    
+
+views:
+    # Main
+  - !include /config/lovelace/views/view_main.yaml
+  - !include /config/lovelace/views/view_livingroom.yaml
+  - !include /config/lovelace/views/view_kitchen.yaml
+  - !include /config/lovelace/views/view_office.yaml
+  - !include /config/lovelace/views/view_hallway.yaml
+  - !include /config/lovelace/views/view_bedroom.yaml
+  - !include /config/lovelace/views/view_remoute_control.yaml  
+  - !include /config/lovelace/views/view_sensors.yaml
+  - !include /config/lovelace/views/view_main_wallpanel.yaml
+  - !include /config/lovelace/views/view_ac.yaml
+  - !include /config/lovelace/views/phone/view_sensors_p.yaml
+#  - !include /config/lovelace/views/view_test.yaml
+
+
+
+
+
+
+
+
+

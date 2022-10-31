@@ -1,0 +1,48 @@
+    icon: 'mdi:kettle-steam-outline'
+    panel: false
+    path: view_kitchen
+    title: Kitchen
+    cards: 
+      - !include /config/lovelace/cards/ac/card_smartir_kitchen.yaml
+
+      - cards:
+          - entity: switch.kitchen
+            hold_action:
+              action: more-info
+            icon: 'mdi:lightbulb'
+            tap_action:
+              action: toggle
+            theme: Google - Dark
+            type: entity-button
+            name: main
+            show_state: true
+            show_name: false
+          - type: 'custom:mini-graph-card'
+            entities:
+              - binary_sensor.motion_sensor_158d00053f7e59
+            name: motion
+            line_color: blue
+            line_width: 8
+            font_size: 75
+            hours_to_show: 1
+            points_per_hour: 30
+            update_interval: 30
+            aggregate_func: max
+            state_map:
+              - value: 'off'
+                label: Clear
+              - value: 'on'
+                label: Detected
+          - entity: switch.switch_kitchen
+            hold_action:
+              action: more-info
+            icon: 'mdi:coffee'
+            icon_height: 70px
+            tap_action:
+              action: toggle
+            theme: Google - Dark
+            type: entity-button
+            show_icon: true
+            show_name: false
+            show_state: true
+        type: horizontal-stack

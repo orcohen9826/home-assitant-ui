@@ -1,0 +1,15 @@
+    panel: false
+    path: view_main_wallpanel
+    theme: ios-dark-mode
+    title: main_wallpanel
+
+    cards:
+      - !include /config/lovelace/cards/wallpanel/card_wallpanel_right.yaml
+      - !include /config/lovelace/cards/wallpanel/card_wallpanel_midle.yaml
+     # - !include /config/lovelace/cards/occupancy/card_occupancy.yaml     
+     # - !include /config/lovelace/cards/menu/card_rooms_menu_buttons.yaml
+      - !include /config/lovelace/cards/ac/card_all_ac_wallpanel.yaml
+     # - !include /config/lovelace/cards/card_ch.yaml
+      #- !include /config/lovelace/cards/occupancy/card_tablets_circle.yaml
+
+     # - !include /config/lovelace/cards/card_vacume.yaml

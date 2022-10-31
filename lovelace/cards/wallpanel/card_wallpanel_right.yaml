@@ -1,0 +1,180 @@
+cards:
+
+
+  - cards:
+      - type: custom:decluttering-card
+        template: title_wallpanel_button_card
+        variables:
+          - name: 'תאורה'
+          - padding-left: 160px
+    type: horizontal-stack
+    
+    
+  - cards:
+      - entity: light.hallway
+        hold_action:
+          action: more-info
+        icon: 'mdi:weather-night'
+        icon_height: 50px
+        name: All lights
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        type: button
+      - entity: light.hallway
+        hold_action:
+          action: more-info
+        icon: 'mdi:coach-lamp'
+        icon_height: 50px
+        name: Evening Mode
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        type: button
+    type: horizontal-stack
+  - cards:
+      - entity: light.gateway_light_04cf8ca14d8f
+        hold_action:
+          action: more-info
+        icon: 'mdi:lightbulb-outline'
+        name: Hub
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        type: button
+      - entity: input_boolean.livingroom_rflight_boolean
+        hold_action:
+          action: more-info
+        icon: 'mdi:vanity-light'
+        name: Main light
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        type: button
+      - entity: light.living_room
+        hold_action:
+          action: more-info
+        icon: 'mdi:lightbulb-outline'
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        type: button
+    type: horizontal-stack
+  - cards:
+      - entity: switch.switch_kitchen
+        hold_action:
+          action: more-info
+        icon: 'mdi:ceiling-light'
+        name: Kitchen
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        type: button
+      - entity: light.hallway
+        hold_action:
+          action: more-info
+        icon: 'mdi:ceiling-light'
+        name: Hallway
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        type: button
+      - entity: light.hallway
+        hold_action:
+          action: more-info
+        icon: 'mdi:ceiling-light'
+        name: Office
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        type: button
+    type: horizontal-stack
+  - cards:
+      - entity: switch.toilet_light
+        hold_action:
+          action: more-info
+        icon: 'mdi:ceiling-light'
+        name: Toilet
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        type: button
+      - entity: light.hallway
+        hold_action:
+          action: more-info
+        icon: 'mdi:ceiling-light'
+        name: Shower
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        type: button
+      - entity: light.badroom
+        hold_action:
+          action: more-info
+        icon: 'mdi:ceiling-light'
+        name: Bedroom
+        show_icon: true
+        show_name: true
+        show_state: false
+        tap_action:
+          action: toggle
+        type: button
+    type: horizontal-stack
+
+  - cards:
+      - type: custom:decluttering-card
+        template: title_wallpanel_button_card
+        variables:
+          - name: 'דוד'
+          - padding-left: 170px
+    type: horizontal-stack
+
+  - cards:
+      - type: button
+        tap_action:
+          action: toggle
+        entity: light.hallway
+        icon: 'mdi:water-boiler-alert'
+        icon_height: '40px'
+        show_name: false
+        name: Boiler
+        theme: grey_night  
+    type: horizontal-stack
+ 
+    
+  - cards:
+      - type: custom:decluttering-card
+        template: title_wallpanel_button_card
+        variables:
+          - name: 'מדיה'
+          - padding-left: 162px
+    type: horizontal-stack
+  - cards:
+       - !include /config/lovelace/cards/media/card_spotify.yaml
+    type: horizontal-stack
+    
+    
+    
+
+
+type: vertical-stack
